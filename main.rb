@@ -5,4 +5,8 @@ class Main < Sinatra::Base
   get '/' do
     erb :index #, locals: { address: address }
   end
+
+  get '/geocodes' do
+    erb :geocodes
+  end
 end

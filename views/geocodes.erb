@@ -1,0 +1,38 @@
+<% require 'geocoder'
+
+   # Latitude   Longitude
+   # ----------------------
+   coord = [
+       [61.582195, -149.443512],
+       [44.775211, -68.774184],
+       [25.891297, -97.393349],
+       [45.787839, -108.502110],
+       [35.109937, -89.959983]
+   ]
+
+   geotrack = Geocode::Calculator.new(coord)
+   results = geotrack.get_addresses true
+%>
+<div class="container p25">
+  <h2>Interview exercise: Geocoding</h2>
+  <p>The following table contains a list of coordinates, the corresponding US address and distance in miles from the
+    White House</p>
+  <table class="table table-striped table-hover">
+    <thead class="th-special">
+    <tr>
+      <th scope="col">Coordinates</th>
+      <th scope="col">Address</th>
+      <th scope="col">Distance (miles)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% results.each_with_index do |(a, d), i| %>
+      <tr scope="row">
+        <td><%= coord[i] %></td>
+        <td><%= a %></td>
+        <td><%= d %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

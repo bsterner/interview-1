@@ -3,3 +3,8 @@
 .p25 {
     padding: 25px;
 }
+
+.th-special, th {
+    background-color: #3949ab !important;
+    color: #fffde7 !important;
+}
